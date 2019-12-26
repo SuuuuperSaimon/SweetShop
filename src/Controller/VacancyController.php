@@ -34,6 +34,7 @@ class VacancyController extends AbstractController
             ->findAll();
 
         return $this->render('vacancy/index.html.twig', [
+            'title' => 'Вакансии',
             'vacancy' => $vacancy,
         ]);
     }
