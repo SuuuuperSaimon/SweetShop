@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-6">
+            {% for vacancy in vacancy %}
+                <div class="list-group text-center">
+                    <a href="{{ path('vacancy_show', { id: vacancy.id }) }}" class="list-group-item list-group-item-action">
+                        <h1>{{ vacancy.vacancyName }}</h1>
+                    </a>
+                </div>
+            {% endfor %}
+            <a href="{{ path('vacancy_create') }}">Create new</a>
+            <div>
+                {% for message in app.flashes('success') %}
+                    <div>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+
+{% endblock %}

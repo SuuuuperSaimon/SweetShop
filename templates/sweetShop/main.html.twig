@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ title }} {% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="container__news col-8">
+            <h1 class="text-center">Актульные Новoсти Компании</h1>
+            <div class="row">
+                {% for news in news %}
+                    <div class="card col">
+                        <div class="card-body">
+                            <h5 class="card-title">{{news.newsName}}</h5>
+                            <h5 class="card-title">{{news.newsDate|date('d/m/y')}}</h5>
+                            <img class="card-img" src="{{ asset('img/news/') ~ news.newsImage }}" alt="">
+                            <p class="card-text">{{ news.newsAnnotation }}</p>
+                            <a href="{{ path('news_show', {id: news.id}) }}" class="card-link">Подробнее</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container__question col-4 text-center">
+            <h1>Ответьте, пожалуйста, на вопрос</h1>
+            <span>Ваше мнение очень важно для нас</span>
+        </div>
+    </div>
+{% endblock %}

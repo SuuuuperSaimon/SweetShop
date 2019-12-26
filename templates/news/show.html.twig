@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}News{% endblock %}
+
+{% block body %}
+    <h1>{{ news.newsName }}</h1>
+    <div class="container-fluid row">
+        <div class="col-4">
+            <img src="{{ asset('img/news/') ~ news.newsImage }}" alt="">
+        </div>
+        <div class="col-8">
+            <span>
+                {{ news.newsText }}
+            </span>
+        </div>
+    </div>
+    <a href="{{ path('news_edit', {id: news.id}) }}" class="card-link">Редактировать</a>
+    <a href="{{ path('news_index') }}">back to list</a>
+
+{% endblock %}

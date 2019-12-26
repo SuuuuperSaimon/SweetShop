@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-light bg-light">
+                <div class="company">
+                        <a href="{{ path('home_index') }}" class="logo text-center">
+                            <img src="{{ asset('img/logo.png') }}" class="logo__img" alt="">
+                            <span>Торжество вкуса</span>
+                        </a>
+                </div>
+                <div class="">
+                    <ul class="nav navbar-nav list">
+                        <li>
+                            <a href="{{ path('about_us') }}">О НАС</a>
+                        </li>
+                        <li>
+                            <a href="#">НАША ПРОДУКЦИЯ</a>
+                        </li>
+                        <li>
+                            <a href="#">НА ЗАКАЗ</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('news_index') }}">НОВОСТИ КОМПАНИИ</a>
+                        </li>
+                        <li>
+                            <a href="#">КОНТАКТЫ</a>
+                        </li>
+                        <li>
+                            <a href="#">МАГАЗИНЫ</a>
+                        </li>
+                        <li>
+                            <a href="#">ОТЗЫВЫ</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+        <footer>
+
+        </footer>
+        {% block javascripts %}
+            <script src="{{ asset('js/js/bootstrap.min.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,35 @@
+{% block form%}
+    {{ form_start(form) }}
+    <div style="margin-bottom: 1rem;">
+        <div>
+            <div>
+                {{ form_errors(form.vacancyName) }}
+            </div>
+            <div>
+                {{ form_label(form.vacancyName) }}
+            </div>
+            <div>
+                {{ form_widget(form.vacancyName) }}
+            </div>
+            <small>{{ form_help(form.vacancyName) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.vacancyDescr) }}
+            </div>
+            <div>
+                {{ form_label(form.vacancyDescr) }}
+            </div>
+            <div>
+                {{ form_widget(form.vacancyDescr) }}
+            </div>
+            <small>{{ form_help(form.vacancyDescr) }}</small>
+        </div>
+        <div style="margin: 2rem 0;">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock form %}
+

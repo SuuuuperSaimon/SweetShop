@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ vacancy.vacancyName }}</h1>
+    <p>
+        {{ vacancy.vacancyDescr }}
+    </p>
+    <a href="{{ path('vacancy_edit', {id: vacancy.id}) }}" class="card-link">Редактировать</a>
+    <a href="{{ path('vacancy') }}">back to list</a>
+{% endblock %}

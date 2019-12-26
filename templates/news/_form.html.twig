@@ -1,0 +1,70 @@
+{% block form %}
+        {{ form_start(form) }}
+    <div style="margin-bottom: 1rem;">
+        <div>
+            <div>
+                {{ form_errors(form.newsName) }}
+            </div>
+            <div>
+                {{ form_label(form.newsName) }}
+            </div>
+            <div>
+                {{ form_widget(form.newsName) }}
+            </div>
+            <small>{{ form_help(form.newsName) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.newsAnnotation) }}
+            </div>
+            <div>
+                {{ form_label(form.newsAnnotation) }}
+            </div>
+            <div>
+                {{ form_widget(form.newsAnnotation) }}
+            </div>
+            <small>{{ form_help(form.newsAnnotation) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.newsText) }}
+            </div>
+            <div>
+                {{ form_label(form.newsText) }}
+            </div>
+            <div>
+                {{ form_widget(form.newsText) }}
+            </div>
+            <small>{{ form_help(form.newsText) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.newsDate) }}
+            </div>
+            <div>
+                {{ form_label(form.newsDate) }}
+            </div>
+            <div>
+                {{ form_widget(form.newsDate) }}
+            </div>
+            <small>{{ form_help(form.newsDate) }}</small>
+        </div>
+        <div >
+            <div>
+                {{ form_errors(form.newsImage) }}
+            </div>
+            <div>
+                {{ form_label(form.newsImage) }}
+            </div>
+            <div>
+                {{ form_widget(form.newsImage) }}
+            </div>
+            <small>{{ form_help(form.newsImage) }}</small>
+        </div>
+        <div style="margin: 2em 0;">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock form %}

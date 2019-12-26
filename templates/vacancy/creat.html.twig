@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Create new News</h1>
+
+    {{ include('vacancy/_form.html.twig') }}
+
+    <a href="{{ path('vacancy') }}">back to list</a>
+{% endblock %}
