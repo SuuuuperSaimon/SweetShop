@@ -32,6 +32,7 @@ class Category
     private $products;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="children")
      *
@@ -40,6 +41,7 @@ class Category
     private $parent;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Category", mappedBy="parent")
      */
@@ -110,10 +112,10 @@ class Category
         return $this;
     }
 
-    public function getChildren(): ?int
+    /*public function getChildren(): ?int
     {
         return $this->children;
-    }
+    }*/
 
     public function setChildren(?int $children): self
     {
