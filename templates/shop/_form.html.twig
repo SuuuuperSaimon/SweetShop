@@ -1,0 +1,47 @@
+{% block form%}
+    {{ form_start(form) }}
+    <div style="margin-bottom: 1rem;">
+        <div>
+            <div>
+                {{ form_errors(form.shop_address) }}
+            </div>
+            <div>
+                {{ form_label(form.shop_address) }}
+            </div>
+            <div>
+                {{ form_widget(form.shop_address) }}
+            </div>
+            <small>{{ form_help(form.shop_address) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.is_brand) }}
+            </div>
+            <div>
+                {{ form_label(form.is_brand) }}
+            </div>
+            <div>
+                {{ form_widget(form.is_brand) }}
+            </div>
+            <small>{{ form_help(form.is_brand) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.district) }}
+            </div>
+            <div>
+                {{ form_label(form.district) }}
+            </div>
+            <div>
+                {{ form_widget(form.district) }}
+            </div>
+            <small>{{ form_help(form.district) }}</small>
+        </div>
+        <div style="margin: 2rem 0;">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock form %}
+

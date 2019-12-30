@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <hr>
+    <div>
+        {% for message in app.flashes('success') %}
+            <div>
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-8">
+            {% if( reviews|length > 0) %}
+                {% for review in reviews %}
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">{{ review.firstName }}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ review.fathersName }}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ review.lastName }}</h6>
+                            <p class="card-text">{{ review.comment }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h1>Отзывов нет</h1>
+            {% endif %}
+        </div>
+        <div class="col-4">
+            {{ include('review/_form.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

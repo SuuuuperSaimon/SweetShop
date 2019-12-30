@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Edit vacancy</h1>
+
+    {{ include('district/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-primary" href="{{ path('district_delete', { id: district.id }) }}">Delete</a>
+    <a class="btn btn-primary" href="{{ path('district') }}">back to list</a>
+{% endblock %}

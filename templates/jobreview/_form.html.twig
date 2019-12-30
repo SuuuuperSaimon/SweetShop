@@ -1,0 +1,84 @@
+{% block form%}
+    {{ form_start(form) }}
+    <div style="margin-bottom: 1rem;">
+        <div>
+            <div>
+                {{ form_errors(form.firstName) }}
+            </div>
+            <div>
+                {{ form_label(form.firstName) }}
+            </div>
+            <div>
+                {{ form_widget(form.firstName) }}
+            </div>
+            <small>{{ form_help(form.firstName) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.lastName) }}
+            </div>
+            <div>
+                {{ form_label(form.lastName) }}
+            </div>
+            <div>
+                {{ form_widget(form.lastName) }}
+            </div>
+            <small>{{ form_help(form.lastName) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.fathersName) }}
+            </div>
+            <div>
+                {{ form_label(form.fathersName) }}
+            </div>
+            <div>
+                {{ form_widget(form.fathersName) }}
+            </div>
+            <small>{{ form_help(form.fathersName) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.vacancy) }}
+            </div>
+            <div>
+                {{ form_label(form.vacancy) }}
+            </div>
+            <div>
+                {{ form_widget(form.vacancy) }}
+            </div>
+            <small>{{ form_help(form.vacancy) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.email) }}
+            </div>
+            <div>
+                {{ form_label(form.email) }}
+            </div>
+            <div>
+                {{ form_widget(form.email) }}
+            </div>
+            <small>{{ form_help(form.email) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.comment) }}
+            </div>
+            <div>
+                {{ form_label(form.comment) }}
+            </div>
+            <div>
+                {{ form_widget(form.comment) }}
+            </div>
+            <small>{{ form_help(form.comment) }}</small>
+        </div>
+        <div style="margin: 2rem 0;">
+            <button class="btn btn-primary">Отправить</button>
+            <button class="btn btn-primary" type="reset">Очистить</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock form %}
+

@@ -1,26 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %} {{ title }} {% endblock title %}
 
 {% block body %}
-    <h1>Category</h1>
+    <h2>{{ category.categoryName }}</h2>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>CategoryName</th>
-                <td>{{ category.categoryName }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="list-group">
+        {% for product in category.products %}
+            <div class="list-group-item">
+                <a href="{{ path('product_show', {id: product.id}) }}">{{ product.productName }}</a>
+            </div>
+        {% endfor %}
+    </div>
 
-    <a href="{{ path('category_index') }}">back to list</a>
-
-    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
-
-    {{ include('category/_delete_form.html.twig') }}
+    <a href="{{ path('category_edit', {id: shop.id}) }}" class="card-link">Редактировать</a>
+    <a href="{{ path('category') }}">back to list</a>
 {% endblock %}

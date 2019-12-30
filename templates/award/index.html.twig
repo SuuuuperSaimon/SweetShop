@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <div class="list-group">
+        {% for award in awards %}
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="{{ path('award_show', {id: award.id}) }}">
+                            <img src="{{ asset('img/awards/') ~ award.awardImage }}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-8">
+                        <a href="{{ path('award_show', {id: award.id}) }}">
+                            <h3>{{ award.awardName }}</h3>
+                        </a>
+                        <p>{{ award.awardDescription }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <a href="{{ path('award_new') }}">Create new</a>
+    </div>
+{% endblock %}

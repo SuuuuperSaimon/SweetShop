@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
-
+{% block title %} {{ title }} {% endblock title %}
 {% block body %}
-    <h1>{{ vacancy.vacancyName }}</h1>
+    <h2>{{ title }}: {{ vacancy.vacancyName }}</h2>
     <p>
         {{ vacancy.vacancyDescr }}
     </p>

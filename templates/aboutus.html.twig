@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block title %} {{ title }} {% endblock %}
 {% block body %}
+    <h1>{{ title }}</h1>
     <div>
         <p>
             <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque esse libero porro qui rerum ut! Ducimus minus, quidem? A adipisci beatae dolor dolores dolorum ducimus excepturi in, neque odit officia?</span>
@@ -12,6 +13,6 @@
     </div>
     <div class="list-group text-center">
         <a href="{{ path('vacancy') }}" class="list-group-item list-group-item-action">Вакансии</a>
-        <a href="#" class="list-group-item list-group-item-action">Награды</a>
+        <a href="{{ path('award') }}" class="list-group-item list-group-item-action">Награды</a>
     </div>
 {% endblock %}

@@ -47,6 +47,7 @@ class MainController extends AbstractController
      *
      */
     public function adoutUs() {
+
         return $this->render('aboutus.html.twig', [
             'title' => 'О нас',
         ]);

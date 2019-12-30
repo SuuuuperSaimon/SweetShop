@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ title }} {% endblock title %}
+{% block body %}
+    <h2>{{ district.districtName }}</h2>
+    <div class="list-group">
+        {% for shop in district.shops %}
+            <div class="list-group-item">
+                <a href="{{ path('store_show', {id: shop.id}) }}">{{ shop.shopAddress }}</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <a href="{{ path('district_edit', {id: district.id}) }}" class="card-link">Редактировать</a>
+    <a href="{{ path('district') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% block form %}
+        {{ form_start(form) }}
+    <div style="margin-bottom: 1rem;">
+        <div>
+            <div>
+                {{ form_errors(form.award_name) }}
+            </div>
+            <div>
+                {{ form_label(form.award_name) }}
+            </div>
+            <div>
+                {{ form_widget(form.award_name) }}
+            </div>
+            <small>{{ form_help(form.award_name) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.award_description) }}
+            </div>
+            <div>
+                {{ form_label(form.award_description) }}
+            </div>
+            <div>
+                {{ form_widget(form.award_description) }}
+            </div>
+            <small>{{ form_help(form.award_description) }}</small>
+        </div>
+        <div >
+            <div>
+                {{ form_errors(form.award_image) }}
+            </div>
+            <div>
+                {{ form_label(form.award_image) }}
+            </div>
+            <div>
+                {{ form_widget(form.award_image) }}
+            </div>
+            <small>{{ form_help(form.award_image) }}</small>
+        </div>
+        <div style="margin: 2em 0;">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock form %}

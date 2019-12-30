@@ -3,6 +3,14 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block body %}
+    <h1> {{ title }}</h1>
+    <div>
+        {% for message in app.flashes('success') %}
+            <div>
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
     <div class="row">
         <div class="col-6">
             {% for vacancy in vacancy %}
@@ -13,16 +21,9 @@
                 </div>
             {% endfor %}
             <a href="{{ path('vacancy_create') }}">Create new</a>
-            <div>
-                {% for message in app.flashes('success') %}
-                    <div>
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
         </div>
         <div class="col-6">
-
+            {{ include('jobreview/_form.html.twig') }}
         </div>
     </div>
 

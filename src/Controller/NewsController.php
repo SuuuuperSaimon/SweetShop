@@ -31,12 +31,11 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/news", name="news_index")
-     * @param EntityManagerInterface $em
      * @param PaginatorInterface $paginator
      * @param Request $request
      * @return Response
      */
-    public function index(EntityManagerInterface $em, PaginatorInterface $paginator, Request $request)
+    public function index(PaginatorInterface $paginator, Request $request)
     {
         $news = $this->getDoctrine()
             ->getRepository(News::class)
@@ -49,7 +48,8 @@ class NewsController extends AbstractController
         );
 
         return $this->render('news/news.html.twig', [
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'title' => 'Новости компании',
         ]);
     }
 
@@ -111,7 +111,7 @@ class NewsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form['newsImage']->getData();
             if ($file) {
-                $fileName = $fileUploader->upload($file);
+                $fileName = $fileUploader->upload($file, "/news");
                 $news->setNewsImage($fileName);
             }
             $this->entityManager->flush();

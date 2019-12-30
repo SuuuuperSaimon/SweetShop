@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ award.awardName }}</h1>
+    <div class="container-fluid row">
+        <div class="col-4">
+            <img src="{{ asset('img/awards/') ~ award.awardImage }}" alt="">
+        </div>
+        <div class="col-8">
+            <span>
+                {{ award.awardDescription }}
+            </span>
+        </div>
+    </div>
+    <a href="{{ path('award_edit', {id: award.id}) }}" class="card-link">Редактировать</a>
+    <a href="{{ path('award') }}">Обратно к списку</a>
+
+{% endblock %}

@@ -1,4 +1,47 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% block form%}
+    {{ form_start(form) }}
+    <div style="margin-bottom: 1rem;">
+        <div>
+            <div>
+                {{ form_errors(form.categoryName) }}
+            </div>
+            <div>
+                {{ form_label(form.categoryName) }}
+            </div>
+            <div>
+                {{ form_widget(form.categoryName) }}
+            </div>
+            <small>{{ form_help(form.categoryName) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.parent) }}
+            </div>
+            <div>
+                {{ form_label(form.parent) }}
+            </div>
+            <div>
+                {{ form_widget(form.parent) }}
+            </div>
+            <small>{{ form_help(form.parent) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.children) }}
+            </div>
+            <div>
+                {{ form_label(form.children) }}
+            </div>
+            <div>
+                {{ form_widget(form.children) }}
+            </div>
+            <small>{{ form_help(form.children) }}</small>
+        </div>
+        <div style="margin: 2rem 0;">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock form %}
+
