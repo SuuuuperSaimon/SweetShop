@@ -32,20 +32,20 @@ class Category
     private $products;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="children")
-     *
      * @ORM\JoinColumn(name="parent", referencedColumnName="id")
      */
     private $parent;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     *
      * @ORM\OneToMany(targetEntity="App\Entity\Category", mappedBy="parent")
      */
     private $children;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_elite;
 
     public function __construct()
     {
@@ -112,29 +112,22 @@ class Category
         return $this;
     }
 
-    /*public function getChildren(): ?int
-    {
-        return $this->children;
-    }*/
-
-    public function setChildren(?int $children): self
-    {
-        $this->children = $children;
-
-        return $this;
-    }
-
-    public function addChild(Category $child) {
-        $this->children[] = $child;
-        $child->setParent($this);
-    }
-
     /**
      * @return Collection|Category[]
      */
     public function getChildren(): Collection
     {
         return $this->children;
+    }
+
+    public function addChild(Category $child): self
+    {
+        if (!$this->children->contains($child)) {
+            $this->children[] = $child;
+            $child->setParent($this);
+        }
+
+        return $this;
     }
 
     public function removeChild(Category $child): self
@@ -146,6 +139,18 @@ class Category
                 $child->setParent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsElite(): ?bool
+    {
+        return $this->is_elite;
+    }
+
+    public function setIsElite(bool $is_elite): self
+    {
+        $this->is_elite = $is_elite;
 
         return $this;
     }

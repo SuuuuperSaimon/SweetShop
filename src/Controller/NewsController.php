@@ -22,6 +22,7 @@ class NewsController extends AbstractController
 
     /**
      * NewsController constructor.
+     *
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)
@@ -31,13 +32,17 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/news", name="news_index")
+     *
      * @param PaginatorInterface $paginator
+     *
      * @param Request $request
+     *
      * @return Response
      */
     public function index(PaginatorInterface $paginator, Request $request)
     {
-        $news = $this->getDoctrine()
+        $news = $this
+            ->getDoctrine()
             ->getRepository(News::class)
             ->findAll();
 
@@ -49,14 +54,17 @@ class NewsController extends AbstractController
 
         return $this->render('news/news.html.twig', [
             'pagination' => $pagination,
-            'title' => 'Новости компании',
+            'title'      => 'Новости компании',
         ]);
     }
 
     /**
      * @Route("/news/new", name="news_new")
+     *
      * @param Request $request
+     *
      * @param FileUploader $fileUploader
+     *
      * @return Response
      */
     public function new(Request $request, FileUploader $fileUploader): Response
@@ -85,7 +93,9 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/news/{id}", name="news_show")
+     *
      * @param News $news
+     *
      * @return Response
      */
     public function show(News $news): Response
@@ -97,9 +107,13 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/news/edit/{id}", name="news_edit")
+     *
      * @param Request $request
+     *
      * @param News $news
+     *
      * @param FileUploader $fileUploader
+     *
      * @return Response
      */
     public function edit(Request $request, News $news, FileUploader $fileUploader): Response
@@ -110,10 +124,12 @@ class NewsController extends AbstractController
         //dd($form->getData());
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form['newsImage']->getData();
+
             if ($file) {
                 $fileName = $fileUploader->upload($file, "/news");
                 $news->setNewsImage($fileName);
             }
+
             $this->entityManager->flush();
             $this->addFlash('success', 'selected news has been updated');
 
@@ -128,7 +144,9 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/news/delete/{id}", name="news_delete")
+     *
      * @param News $news
+     *
      * @return Response
      */
     public function delete(News $news): Response

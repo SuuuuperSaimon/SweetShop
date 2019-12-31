@@ -131,6 +131,8 @@
       <path value="$PROJECT_DIR$/vendor/michelf/php-markdown" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1VNOzxzojQIB0lNNCNkFecNw4sl" />
@@ -154,10 +156,10 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/category" />
+      <recent name="$PROJECT_DIR$/templates/product" />
       <recent name="$PROJECT_DIR$/templates/district" />
       <recent name="$PROJECT_DIR$/templates/shop" />
       <recent name="$PROJECT_DIR$/templates/award" />
-      <recent name="$PROJECT_DIR$/templates/contacts" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -185,7 +187,7 @@
       <workItem from="1577090352576" duration="41368000" />
       <workItem from="1577260232443" duration="30808000" />
       <workItem from="1577346003200" duration="59157000" />
-      <workItem from="1577691255692" duration="31221000" />
+      <workItem from="1577691255692" duration="49011000" />
     </task>
     <servers />
   </component>
@@ -205,18 +207,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1083" y="302" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577197039655" />
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1577720174779">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1577781315972">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577720174779" />
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577781315972" />
     <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl" timestamp="1577365796095">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1577365796095" />
-    <state x="724" y="366" width="529" height="373" key="NewPhpClassDialog" timestamp="1577272750281">
+    <state x="724" y="366" width="545" height="373" key="NewPhpClassDialog" timestamp="1577795522710">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="724" y="366" width="529" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577272750281" />
+    <state x="724" y="366" width="545" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577795522710" />
     <state x="1145" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1577203289474">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

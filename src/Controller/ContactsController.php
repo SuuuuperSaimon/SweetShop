@@ -17,6 +17,7 @@ class ContactsController extends AbstractController
 
     /**
      * ContactsController constructor.
+     *
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)
@@ -26,7 +27,9 @@ class ContactsController extends AbstractController
 
     /**
      * @Route("/contacts", name="contacts")
+     *
      * @param Request $request
+     *
      * @return Response
      */
     public function index(Request $request)
@@ -45,7 +48,7 @@ class ContactsController extends AbstractController
 
         return $this->render('contacts/index.html.twig', [
             'title' => 'Контакты',
-            'form' => $form->createView()
+            'form'  => $form->createView()
         ]);
     }
 }

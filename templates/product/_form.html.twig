@@ -1,0 +1,82 @@
+{% block form %}
+        {{ form_start(form) }}
+    <div style="margin-bottom: 1rem;">
+        <div>
+            <div>
+                {{ form_errors(form.productName) }}
+            </div>
+            <div>
+                {{ form_label(form.productName) }}
+            </div>
+            <div>
+                {{ form_widget(form.productName) }}
+            </div>
+            <small>{{ form_help(form.productName) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.productWieght) }}
+            </div>
+            <div>
+                {{ form_label(form.productWieght) }}
+            </div>
+            <div>
+                {{ form_widget(form.productWieght) }}
+            </div>
+            <small>{{ form_help(form.productWieght) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.productDesc) }}
+            </div>
+            <div>
+                {{ form_label(form.productDesc) }}
+            </div>
+            <div>
+                {{ form_widget(form.productDesc) }}
+            </div>
+            <small>{{ form_help(form.productDesc) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.is_new) }}
+            </div>
+            <div>
+                {{ form_label(form.is_new) }}
+            </div>
+            <div>
+                {{ form_widget(form.is_new) }}
+            </div>
+            <small>{{ form_help(form.is_new) }}</small>
+        </div>
+        <div >
+            <div>
+                {{ form_errors(form.category) }}
+            </div>
+            <div>
+                {{ form_label(form.category) }}
+            </div>
+            <div>
+                {{ form_widget(form.category) }}
+            </div>
+            <small>{{ form_help(form.category) }}</small>
+        </div>
+        <div >
+            <div>
+                {{ form_errors(form.productImage) }}
+            </div>
+            <div>
+                {{ form_label(form.productImage) }}
+            </div>
+            <div>
+                {{ form_widget(form.productImage) }}
+            </div>
+            <small>{{ form_help(form.productImage) }}</small>
+        </div>
+        <div style="margin: 2em 0;">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock form %}

@@ -36,12 +36,11 @@ class ShopController extends AbstractController
     }
     /**
      * @Route("/brandshops", name="brandstores")
-     * @param Request $request
-     * @return Response
      */
-    public function brandShops(Request $request)
+    public function brandShops()
     {
-        $brandShops = $this->getDoctrine()
+        $brandShops = $this
+            ->getDoctrine()
             ->getRepository(Shop::class)
             ->findBy([
                'is_brand' => true
@@ -55,7 +54,9 @@ class ShopController extends AbstractController
 
     /**
      * @Route("/stores/new", name="store_new")
+     *
      * @param Request $request
+     *
      * @return
      */
     public function new(Request $request)
@@ -79,7 +80,9 @@ class ShopController extends AbstractController
 
     /**
      * @Route("/stores/store/{id}", name="store_show")
+     *
      * @param Shop $shop
+     *
      * @return Response
      */
     public function show(Shop $shop)
@@ -92,8 +95,11 @@ class ShopController extends AbstractController
 
     /**
      * @Route("/stores/edit/{id}", name="store_edit")
+     *
      * @param Request $request
+     *
      * @param Shop $shop
+     *
      * @return Response
      */
     public function edit(Request $request, Shop $shop)

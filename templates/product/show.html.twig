@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ product.productName }} {% endblock title %}
+
+{% block body %}
+    <h2>{{ product.productName }}</h2>
+    <div class="container-fluid row">
+        <div class="col-4">
+            <img src="{{ asset('img/products/') ~ product.productImage }}" alt="">
+        </div>
+        <div class="col-8">
+            {% if(product.isNew) %}
+                <div>Новинка!</div>
+            {% endif %}
+            <span>
+                {{ product.productWieght }} кг
+            </span>
+            <p>
+                {{ product.productDesc }}
+            </p>
+        </div>
+    </div>
+    <a href="{{ path('product_edit', {id: product.id}) }}" class="card-link">Редактировать</a>
+    <a href="{{ path('category') }}">back to list of categories</a>
+{% endblock %}

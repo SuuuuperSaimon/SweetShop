@@ -3,11 +3,15 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block body %}
+
     <h1>{{ title }}</h1>
+
     <div class="list-group">
-        {% for category in categories  %}
+        {% for category in eliteCategory  %}
             <a class="list-group-item" href="{{ path('category_show', {id: category.id}) }}">{{ category.categoryName }}</a>
         {% endfor %}
     </div>
     <a class="btn btn-primary" href="{{ path('category_new') }}">Create new</a>
+    <a class="btn btn-primary" href="{{ path('product_create') }}" class="card-link">Создать продукт</a>
+    <a class="btn btn-primary" href="{{ path('category') }}">Back to List</a>
 {% endblock %}

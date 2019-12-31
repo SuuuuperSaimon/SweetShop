@@ -80,7 +80,7 @@ class DistrictController extends AbstractController
 
         return $this->render('district/edit.html.twig', [
             'district' => $district,
-            'form' => $form->createView(),
+            'form'     => $form->createView(),
         ]);
     }
 

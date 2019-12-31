@@ -18,6 +18,7 @@ class AwardController extends AbstractController
 
     /**
      * AwardController constructor.
+     *
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)
@@ -27,12 +28,15 @@ class AwardController extends AbstractController
 
     /**
      * @Route("/award", name="award")
+     *
      * @param Request $request
+     *
      * @return Response
      */
     public function index(Request $request)
     {
-        $awards = $this->getDoctrine()
+        $awards = $this
+            ->getDoctrine()
             ->getRepository(Award::class)
             ->findAll();
 
@@ -44,8 +48,11 @@ class AwardController extends AbstractController
 
     /**
      * @Route("/award/new", name="award_new")
+     *
      * @param Request $request
+     *
      * @param FileUploader $fileUploader
+     *
      * @return Response
      */
     public function new(Request $request, FileUploader $fileUploader)
@@ -73,7 +80,9 @@ class AwardController extends AbstractController
 
     /**
      * @Route("/award/{id}", name="award_show")
+     *
      * @param Award $award
+     *
      * @return Response
      */
     public function show(Award $award): Response
@@ -86,9 +95,13 @@ class AwardController extends AbstractController
 
     /**
      * @Route("/award/edit/{id}", name="award_edit")
+     *
      * @param Request $request
+     *
      * @param Award $award
+     *
      * @param FileUploader $fileUploader
+     *
      * @return Response
      */
     public function edit(Request $request, Award $award, FileUploader $fileUploader): Response
@@ -117,7 +130,9 @@ class AwardController extends AbstractController
 
     /**
      * @Route("/award/delete/{id}", name="award_delete")
+     *
      * @param Award $award
+     *
      * @return Response
      */
     public function delete(Award $award): Response

@@ -19,6 +19,7 @@ class ReviewController extends AbstractController
 
     /**
      * ReviewController constructor.
+     *
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)
@@ -28,12 +29,15 @@ class ReviewController extends AbstractController
 
     /**
      * @Route("/review", name="review")
+     *
      * @param Request $request
+     *
      * @return Response
      */
     public function index(Request $request)
     {
-        $reviews = $this->getDoctrine()
+        $reviews = $this
+            ->getDoctrine()
             ->getRepository(Review::class)
             ->findBy([
                 'is_checked' => true,
@@ -53,8 +57,8 @@ class ReviewController extends AbstractController
 
         return $this->render('review/index.html.twig', [
             'reviews' => $reviews,
-            'title'=> 'Отзывы о нас',
-            'form' => $form->createView(),
+            'title'   => 'Отзывы о нас',
+            'form'    => $form->createView(),
         ]);
     }
 }

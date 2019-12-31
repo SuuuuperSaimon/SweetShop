@@ -29,7 +29,8 @@ class MainController extends AbstractController
      */
     public function show()
     {
-        $limitNews = $this->entityManager
+        $limitNews = $this
+            ->entityManager
             ->getRepository(News::class)
             ->findBy(
                 [],

@@ -28,9 +28,10 @@ class CategoryController extends AbstractController
     /** @Route("/category", name="category") */
     public function index()
     {
-        $categories = $this->getDoctrine()
-                         ->getRepository(Category::class)
-                         ->findAll();
+        $categories = $this
+            ->getDoctrine()
+            ->getRepository(Category::class)
+            ->findAll();
 
         return $this->render('category/index.html.twig', [
             'title' => 'Категории',
@@ -127,5 +128,21 @@ class CategoryController extends AbstractController
         $this->addFlash('success', 'selected category has been deleted');
 
         return $this->redirectToRoute('category');
+    }
+
+    /**
+     * @Route("/elite-category", name="category_elite") */
+    public function eliteCategory() {
+        $eliteCategory = $this
+            ->getDoctrine()
+            ->getRepository(Category::class)
+            ->findBy([
+                'is_elite' => true,
+            ]);
+
+        return $this->render('category/elite.html.twig', [
+           'title'         => 'Продукция на заказ',
+           'eliteCategory' => $eliteCategory,
+        ]);
     }
 }

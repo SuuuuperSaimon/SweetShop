@@ -6,7 +6,7 @@
     <h1>{{ title }}</h1>
     <div class="list-group">
         {% for district in district  %}
-            <a href="{{ path('district_show', {id: district.id}) }}">{{ district.districtName }}</a>
+            <a class="list-group-item" href="{{ path('district_show', {id: district.id}) }}">{{ district.districtName }}</a>
         {% endfor %}
     </div>
     <a href="{{ path('district_new') }}">Create new</a>

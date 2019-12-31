@@ -18,7 +18,7 @@ class AwardType extends AbstractType
             ->add('award_name', TextType::class)
             ->add('award_description', TextareaType::class)
             ->add('award_image', FileType::class, [
-                'mapped' => false,
+                'mapped'   => false,
                 'required' => false
             ]);
         ;

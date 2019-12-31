@@ -4,15 +4,21 @@
 
 {% block body %}
     <h2>{{ category.categoryName }}</h2>
+    {% if(category.children.count > 0) %}
+        <div class="list-group-item">
+            {% for categor in category.children %}
+                <a class="list-group-item" href="{{ path('category_show', {id: categor.id}) }}">{{ categor.categoryName }}</a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="list-group">
+            {% for product in category.products %}
+                <a class="list-group-item" href="{{ path('product_show', {id: product.id}) }}">{{ product.productName }}</a>
+            {% endfor %}
+        </div>
+        <a class="btn btn-primary" href="{{ path('product_create') }}" class="card-link">Создать продукт</a>
+    {% endif %}
 
-    <div class="list-group">
-        {% for product in category.products %}
-            <div class="list-group-item">
-                <a href="{{ path('product_show', {id: product.id}) }}">{{ product.productName }}</a>
-            </div>
-        {% endfor %}
-    </div>
-
-    <a href="{{ path('category_edit', {id: shop.id}) }}" class="card-link">Редактировать</a>
-    <a href="{{ path('category') }}">back to list</a>
+    <a class="btn btn-primary" href="{{ path('category_edit', {id: category.id}) }}" class="card-link">Редактировать категорию</a>
+    <a class="btn btn-primary" href="{{ path('category') }}">back to list</a>
 {% endblock %}
