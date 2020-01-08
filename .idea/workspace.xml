@@ -133,6 +133,21 @@
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/symfony/templating" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-acl" />
+      <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/sonata-project/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sonata-project/cache" />
+      <path value="$PROJECT_DIR$/vendor/sonata-project/block-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sonata-project/datagrid-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sonata-project/doctrine-extensions" />
+      <path value="$PROJECT_DIR$/vendor/sonata-project/core-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig/extensions" />
+      <path value="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1VNOzxzojQIB0lNNCNkFecNw4sl" />
@@ -144,22 +159,23 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/category" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../confectionery" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/shop" />
-      <recent name="$PROJECT_DIR$/public/js" />
-      <recent name="$PROJECT_DIR$/public/css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/category" />
       <recent name="$PROJECT_DIR$/templates/product" />
       <recent name="$PROJECT_DIR$/templates/district" />
       <recent name="$PROJECT_DIR$/templates/shop" />
       <recent name="$PROJECT_DIR$/templates/award" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/img/news" />
+      <recent name="$PROJECT_DIR$/templates/shop" />
+      <recent name="$PROJECT_DIR$/public/js" />
+      <recent name="$PROJECT_DIR$/public/css" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -187,7 +203,8 @@
       <workItem from="1577090352576" duration="41368000" />
       <workItem from="1577260232443" duration="30808000" />
       <workItem from="1577346003200" duration="59157000" />
-      <workItem from="1577691255692" duration="49011000" />
+      <workItem from="1577691255692" duration="49611000" />
+      <workItem from="1578469256468" duration="27380000" />
     </task>
     <servers />
   </component>
@@ -207,18 +224,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1083" y="302" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577197039655" />
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1577781315972">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578493954940">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577781315972" />
-    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl" timestamp="1577365796095">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578493954940" />
+    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl" timestamp="1578469574699">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1577365796095" />
-    <state x="724" y="366" width="545" height="373" key="NewPhpClassDialog" timestamp="1577795522710">
+    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1578469574699" />
+    <state x="402" y="334" width="545" height="373" key="NewPhpClassDialog" timestamp="1578492404012">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="724" y="366" width="545" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577795522710" />
+    <state x="402" y="334" width="545" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578492404012" />
     <state x="1145" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1577203289474">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -227,14 +244,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="290" y="350" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1577101609659" />
-    <state x="1008" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1577691255927">
+    <state x="1008" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1578469261072">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="1008" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577691255927" />
-    <state x="995" y="157" width="709" height="792" key="find.popup" timestamp="1577199407976">
+    <state x="1008" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578469261072" />
+    <state x="995" y="157" width="709" height="792" key="find.popup" timestamp="1578497020673">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="995" y="157" width="709" height="792" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1577199407976" />
+    <state x="995" y="157" width="709" height="792" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1578497020673" />
     <state x="1013" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1577712249091">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
