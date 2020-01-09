@@ -1,7 +1,7 @@
 App\Entity\Image:
   type: entity
   repositoryClass: App\Entity\Repositories\ImageRepository
-  table: images
+  table: image
   id:
     id:
       type:      integer
@@ -9,7 +9,7 @@ App\Entity\Image:
   fields:
     filename:
       type:      string
-      length:    100
+      length:    255
 
     # changed when files are uploaded, to force preUpdate and postUpdate to fire
     updated:

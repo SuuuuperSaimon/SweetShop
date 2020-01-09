@@ -30,8 +30,14 @@ services:
         arguments:
             $targetDirectory: '%kernel.project_dir%/public/img'
 
-    admin.category:
+    admin.award:
         class: App\Admin\AwardAdmin
         arguments: [~, App\Entity\Award, ~]
         tags:
-            - {name: sonata.admin, manager_type: orm, label: Award}
+            - {name: sonata.admin, manager_type: orm, group: Demo, label: Award}
+
+    admin.image:
+        class: App\Admin\ImageAdmin
+        arguments: [~, App\Entity\Image, ~]
+        tags:
+             - {name: sonata.admin, manager_type: orm, label: Image}
