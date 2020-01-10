@@ -34,7 +34,7 @@ services:
         class: App\Admin\AwardAdmin
         arguments: [~, App\Entity\Award, ~]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Demo, label: Award}
+            - {name: sonata.admin, manager_type: orm, label: Award}
 
     admin.image:
         class: App\Admin\ImageAdmin

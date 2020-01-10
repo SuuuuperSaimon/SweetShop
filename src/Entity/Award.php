@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AwardRepository")
  */
 class Award
 {
+    const SERVER_PATH_TO_IMAGE_FOLDER = 'img/awards';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -27,9 +30,14 @@ class Award
     private $award_description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $award_image;
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $file;
 
     public function getId(): ?int
     {
@@ -65,10 +73,33 @@ class Award
         return $this->award_image;
     }
 
-    public function setAwardImage(string $award_image): self
+    /**
+     * @param string|null $award_image
+     *
+     * @return $this
+     */
+    public function setAwardImage( ?string $award_image): self
     {
         $this->award_image = $award_image;
 
         return $this;
     }
+
+    /**
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+
 }

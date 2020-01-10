@@ -17,8 +17,8 @@ class AwardType extends AbstractType
         $builder
             ->add('award_name', TextType::class)
             ->add('award_description', TextareaType::class)
-            ->add('award_image', FileType::class, [
-                'mapped'   => false,
+            ->add('file', FileType::class, [
+//                'mapped'   => false,
                 'required' => false
             ]);
         ;

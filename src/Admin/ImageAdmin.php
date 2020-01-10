@@ -37,11 +37,7 @@ class ImageAdmin extends AbstractAdmin
 
     public function prePersist($image)
     {
-        if ($image->getFile()) {
-            $image->lifecycleFileUpload();
-            $image->refreshUpdated();
-        }
-        //$this->manageFileUpload($image);
+        $this->manageFileUpload($image);
     }
 
     public function preUpdate($image)

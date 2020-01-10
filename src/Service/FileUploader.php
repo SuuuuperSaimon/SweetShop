@@ -14,6 +14,13 @@ class FileUploader
         $this->targetDirectory = $targetDirectory;
     }
 
+    public function removeFile($objectName, $path)
+    {
+        if ($objectName) {
+            return @unlink( $this->getTargetDirectory() . $path . '/' . $objectName);
+        }
+    }
+
     public function upload(UploadedFile $file, $path)
     {
         $fileName = md5(uniqid()).'.'.$file->guessExtension();

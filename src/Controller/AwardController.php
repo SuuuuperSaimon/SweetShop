@@ -62,8 +62,9 @@ class AwardController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['award_image']->getData();
-            $fileName = $fileUploader->upload($file, "/awards");
+//            dd($award);
+//            $file = $form['award_image']->getData();
+            $fileName = $fileUploader->upload($award->getFile(), "/awards");
             $award->setAwardImage($fileName);
 
             $this->entityManager->persist($award);
