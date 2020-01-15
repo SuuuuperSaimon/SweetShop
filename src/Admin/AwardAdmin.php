@@ -96,6 +96,11 @@ class AwardAdmin extends AbstractAdmin
         }
     }
 
+    public function preRemove($object)
+    {
+        $fileName = $object->getAwardImage();
+        $this->fileUploader->removeFile($fileName, '/awards');
+    }
 
     private function manageEmbeddedImageAdmins($page)
     {

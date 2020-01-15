@@ -35,8 +35,7 @@ class ProductType extends AbstractType
                 'placeholder'  => 'Категория',
                 'choice_label' => 'categoryName',
             ])
-            ->add('productImage',FileType::class, [
-                'mapped'   => false,
+            ->add('file',FileType::class, [
                 'required' => false
             ])
         ;

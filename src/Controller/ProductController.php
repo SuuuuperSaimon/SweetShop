@@ -26,16 +26,6 @@ class ProductController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-//    /**
-//     * @Route("/product", name="product")
-//     */
-//    public function index()
-//    {
-//        return $this->render('product/index.html.twig', [
-//            'title' => 'Продукты',
-//        ]);
-//    }
-
     /**
      * @Route("/product/show/{id}", name="product_show")
      *
@@ -67,9 +57,9 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['productImage']->getData();
-            if ($file) {
-                $fileName = $fileUploader->upload($file, "/news");
+            //$file = $form['productImage']->getData();
+            if ($product->getFile()) {
+                $fileName = $fileUploader->upload($product->getFile(), "/news");
                 $product->setProductImage($fileName);
             }
 
@@ -101,8 +91,8 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['productImage']->getData();
-            $fileName = $fileUploader->upload($file, "/products");
+            //$file = $form['productImage']->getData();
+            $fileName = $fileUploader->upload($product->getFile(), "/products");
             $product->setProductImage($fileName);
 
             $this->entityManager->persist($product);

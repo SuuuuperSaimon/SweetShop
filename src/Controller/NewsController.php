@@ -75,8 +75,8 @@ class NewsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             //dd();
-            $file = $form['newsImage']->getData();
-            $fileName = $fileUploader->upload($file, '/news');
+            //$file = $form['newsImage']->getData();
+            $fileName = $fileUploader->upload($news->getFile(), '/news');
             $news->setNewsImage($fileName);
 
             $this->entityManager->persist($news);
@@ -123,10 +123,10 @@ class NewsController extends AbstractController
 
         //dd($form->getData());
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['newsImage']->getData();
+            //$file = $form['newsImage']->getData();
 
-            if ($file) {
-                $fileName = $fileUploader->upload($file, "/news");
+            if ($news->getFile()) {
+                $fileName = $fileUploader->upload($news->getFile(), "/news");
                 $news->setNewsImage($fileName);
             }
 

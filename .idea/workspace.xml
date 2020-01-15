@@ -159,7 +159,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/admin/awardAdmin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
@@ -205,7 +205,8 @@
       <workItem from="1577260232443" duration="30808000" />
       <workItem from="1577346003200" duration="59157000" />
       <workItem from="1577691255692" duration="49611000" />
-      <workItem from="1578469256468" duration="83919000" />
+      <workItem from="1578469256468" duration="96298000" />
+      <workItem from="1578999329794" duration="672000" />
     </task>
     <servers />
   </component>
@@ -225,22 +226,22 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1083" y="302" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577197039655" />
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578664399168">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578907233363">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578664399168" />
-    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl" timestamp="1578469574699">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578907233363" />
+    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl" timestamp="1578917058292">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1578469574699" />
+    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1578917058292" />
     <state x="576" y="289" width="824" height="526" key="IDE.errors.dialog" timestamp="1578583301128">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="576" y="289" width="824" height="526" key="IDE.errors.dialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578583301128" />
-    <state x="402" y="334" width="577" height="373" key="NewPhpClassDialog" timestamp="1578644086751">
+    <state x="402" y="334" width="577" height="373" key="NewPhpClassDialog" timestamp="1578907161651">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="402" y="334" width="577" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578644086751" />
+    <state x="402" y="334" width="577" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578907161651" />
     <state x="1145" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1577203289474">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

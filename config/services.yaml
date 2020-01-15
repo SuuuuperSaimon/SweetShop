@@ -41,3 +41,9 @@ services:
         arguments: [~, App\Entity\Image, ~]
         tags:
              - {name: sonata.admin, manager_type: orm, label: Image}
+
+    admin.news:
+        class: App\Admin\NewsAdmin
+        arguments: [~, App\Entity\News, ~]
+        tags:
+            - {name: sonata.admin, manager_type: orm, label: News}

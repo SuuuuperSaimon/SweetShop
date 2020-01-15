@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class Award
 {
-    const SERVER_PATH_TO_IMAGE_FOLDER = 'img/awards';
+    //const SERVER_PATH_TO_IMAGE_FOLDER = 'img/awards';
 
     /**
      * @ORM\Id()
