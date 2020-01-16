@@ -6,6 +6,7 @@ use App\Entity\News;
 use App\Form\NewsType;
 use App\Repository\NewsRepository;
 use App\Service\FileUploader;
+use App\Service\SerchService;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -19,6 +20,7 @@ class NewsController extends AbstractController
 {
     /** @var EntityManagerInterface*/
     private $entityManager;
+
 
     /**
      * NewsController constructor.
