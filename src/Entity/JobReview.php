@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\JobReviewRepository")
@@ -18,28 +19,39 @@ class JobReview
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $fathersName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $email;
 
     /**
      * @ORM\Column(type="text")
+     *
      */
     private $comment;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Vacancy", inversedBy="jobReviews", cascade={"all"})
+     * @ORM\JoinColumn(name="vacancy", referencedColumnName="id", onDelete="cascade")
+     */
+    private $vacancy;
 
     public function getId(): ?int
     {
@@ -102,6 +114,18 @@ class JobReview
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getVacancy(): ?Vacancy
+    {
+        return $this->vacancy;
+    }
+
+    public function setVacancy(?Vacancy $vacancy): self
+    {
+        $this->vacancy = $vacancy;
 
         return $this;
     }

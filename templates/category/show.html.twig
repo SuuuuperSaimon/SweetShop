@@ -1,26 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %} {{ title }} {% endblock title %}
 
 {% block body %}
-    <h1>Category</h1>
+    <h2>{{ category.categoryName }}</h2>
+    {% if(category.children.count > 0) %}
+        <div class="list-group-item">
+            {% for categor in category.children %}
+                <a class="list-group-item" href="{{ path('category_show', {id: categor.id}) }}">{{ categor.categoryName }}</a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="list-group">
+            {% for product in category.products %}
+                <a class="list-group-item" href="{{ path('product_show', {id: product.id}) }}">{{ product.productName }}</a>
+            {% endfor %}
+        </div>
+        <a class="btn btn-primary" href="{{ path('product_create') }}" class="card-link">Создать продукт</a>
+    {% endif %}
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>CategoryName</th>
-                <td>{{ category.categoryName }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('category_index') }}">back to list</a>
-
-    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
-
-    {{ include('category/_delete_form.html.twig') }}
+    <a class="btn btn-primary" href="{{ path('category_edit', {id: category.id}) }}" class="card-link">Редактировать категорию</a>
+    <a class="btn btn-primary" href="{{ path('category') }}">back to list</a>
 {% endblock %}

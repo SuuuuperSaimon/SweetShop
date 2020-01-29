@@ -13,8 +13,11 @@ class Category
 {
     /**
      * @ORM\Id()
+     *
      * @ORM\GeneratedValue()
+     *
      * @ORM\Column(type="integer")
+     *
      */
     private $id;
 
@@ -28,9 +31,26 @@ class Category
      */
     private $products;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="children")
+     * @ORM\JoinColumn(name="parent", referencedColumnName="id")
+     */
+    private $parent;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Category", mappedBy="parent")
+     */
+    private $children;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_elite;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
+        $this->children = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -50,9 +70,8 @@ class Category
         return $this;
     }
 
-    /**
-     * @return Collection|Product[]
-     */
+
+    /** @return Collection|Product[] */
     public function getProducts(): Collection
     {
         return $this->products;
@@ -77,6 +96,61 @@ class Category
                 $product->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getParent(): ?int
+    {
+        return $this->parent;
+    }
+
+    public function setParent(Category $parent)//?int $parent): self
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getChildren(): Collection
+    {
+        return $this->children;
+    }
+
+    public function addChild(Category $child): self
+    {
+        if (!$this->children->contains($child)) {
+            $this->children[] = $child;
+            $child->setParent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChild(Category $child): self
+    {
+        if ($this->children->contains($child)) {
+            $this->children->removeElement($child);
+            // set the owning side to null (unless already changed)
+            if ($child->getParent() === $this) {
+                $child->setParent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getIsElite(): ?bool
+    {
+        return $this->is_elite;
+    }
+
+    public function setIsElite(bool $is_elite): self
+    {
+        $this->is_elite = $is_elite;
 
         return $this;
     }

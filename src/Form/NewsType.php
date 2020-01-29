@@ -20,8 +20,7 @@ class NewsType extends AbstractType
             ->add('newsAnnotation', TextType::class)
             ->add('newsText', TextareaType::class)
             ->add('newsDate', DateType::class)
-            ->add('newsImage', FileType::class, [
-                'mapped' => false,
+            ->add('file', FileType::class, [
                 'required' => false
             ])
         ;

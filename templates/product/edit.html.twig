@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Edit News</h1>
+    {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-primary" href="{{ path('product_delete', { id: product.id }) }}">Delete</a>
+    <a class="btn btn-primary" href="{{ path('category') }}">back to list of category</a>
+{% endblock %}

@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="086c1bbc-4fdf-4c52-99a4-bf519e15550e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/SerchService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/NewsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/NewsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProductRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/news/news.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/news.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/vacancy/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/vacancy/_form.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="086c1bbc-4fdf-4c52-99a4-bf519e15550e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,7 +174,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/registration" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SweetShop" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -253,8 +242,7 @@
       <workItem from="1579785137565" duration="24000" />
       <workItem from="1579787864164" duration="617000" />
       <workItem from="1580201221573" duration="7671000" />
-      <workItem from="1580213276711" duration="11269000" />
-      <workItem from="1580313569621" duration="710000" />
+      <workItem from="1580213276711" duration="34869000" />
     </task>
     <servers />
   </component>
@@ -266,26 +254,26 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="214" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1579528290075" />
-    <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1577282327805">
+    <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1580310786524">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1577282327805" />
-    <state x="745" y="120" width="476" height="864" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1577091221030">
+    <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1580310786524" />
+    <state x="745" y="120" width="476" height="864" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1580298176832">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="745" y="120" width="476" height="864" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577091221030" />
+    <state x="745" y="120" width="476" height="864" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580298176832" />
     <state x="1083" y="302" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577197039655">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1083" y="302" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577197039655" />
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1580213181052">
+    <state x="1131" y="270" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1580310768939">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580213181052" />
-    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl" timestamp="1578917058292">
+    <state x="1131" y="270" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580310768939" />
+    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl" timestamp="1580313566982">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1578917058292" />
+    <state x="817" y="287" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1580313566982" />
     <state width="263" height="500" key="HiddenNamespacesPopup" timestamp="1579513145065">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -294,18 +282,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="576" y="289" width="824" height="526" key="IDE.errors.dialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578583301128" />
-    <state x="242" y="116" width="1482" height="872" key="MergeDialog" timestamp="1580314343311">
+    <state x="653" y="365" width="593" height="373" key="NewPhpClassDialog" timestamp="1580297180736">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="242" y="116" width="1482" height="872" key="MergeDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580314343311" />
-    <state x="698" y="270" width="580" height="564" key="MultipleFileMergeDialog" timestamp="1580314343312">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="698" y="270" width="580" height="564" key="MultipleFileMergeDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580314343312" />
-    <state x="653" y="365" width="593" height="373" key="NewPhpClassDialog" timestamp="1580214791642">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="653" y="365" width="593" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580214791642" />
+    <state x="653" y="365" width="593" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580297180736" />
     <state x="1145" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1577203289474">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -322,13 +302,13 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1008" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578469261072" />
-    <state x="595" y="177" width="855" height="792" key="find.popup" timestamp="1578642205595">
+    <state x="595" y="177" width="855" height="792" key="find.popup" timestamp="1580292406696">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="595" y="177" width="855" height="792" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1578642205595" />
-    <state x="1013" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1577712249091">
+    <state x="595" y="177" width="855" height="792" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1580292406696" />
+    <state x="1013" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1580310173466">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="1013" y="259" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1577712249091" />
+    <state x="1013" y="259" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1580310173466" />
   </component>
 </project>

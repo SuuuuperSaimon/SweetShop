@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <hr>
+    <div class="list-group">
+        {% for poroduct in eliteCategory. %}
+            <a href="{{ path('product_show', {id: product.}) }}">{{ product. }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

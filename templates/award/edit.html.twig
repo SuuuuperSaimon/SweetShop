@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Edit News</h1>
+    {{ include('award/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-primary" href="{{ path('award_delete', { id:award.id }) }}">Delete</a>
+    <a class="btn btn-primary" href="{{ path('award') }}">Назад к списку</a>
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -31,6 +32,7 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(max=4096)
      */
     private $password;
 
@@ -41,10 +43,27 @@ class User implements UserInterface
     private $username;
 
     /**
-     * @Assert\NotBlank()
-     * @Assert\Length(max=4096)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $plainPassword;
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $userImage;
+
+    private $file;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Country", inversedBy="users")
+     */
+    private $country;
+
 
     public function getId(): ?int
     {
@@ -70,7 +89,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
     }
 
     /**
@@ -131,14 +150,66 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPlainPassword(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->plainPassword;
+        return $this->firstname;
     }
 
-    public function setPlainPassword(string $plainPassword): self
+    public function setFirstname(?string $firstname): self
     {
-        $this->plainPassword = $plainPassword;
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(?string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getUserImage(): ?string
+    {
+        return $this->userImage;
+    }
+
+    public function setUserImage(?string $userImage): self
+    {
+        $this->userImage = $userImage;
+
+        return $this;
+    }
+
+    /**
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function getCountry(): ?Country
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?Country $country): self
+    {
+        $this->country = $country;
 
         return $this;
     }

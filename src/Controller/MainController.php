@@ -6,22 +6,22 @@ namespace App\Controller;
 
 
 use App\Entity\News;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\SerchService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    /** @var EntityManagerInterface */
-    private $entityManager;
+    private $service;
 
     /**
      * MainController constructor
-     * @param EntityManagerInterface $entityManager
+     *
+     * @param SerchService $service
      */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(SerchService $service)
     {
-        $this->entityManager = $entityManager;
+        $this->service = $service;
     }
 
     /**
@@ -29,13 +29,8 @@ class MainController extends AbstractController
      */
     public function show()
     {
-        $limitNews = $this->entityManager
-            ->getRepository(News::class)
-            ->findBy(
-                [],
-                ['id' => 'DESC'],
-                4
-            );
+        $limitNews = $this->service->searchFore();
+
         return $this->render('sweetShop/main.html.twig', [
             'title' => 'Welcome',
             'news' => $limitNews
@@ -47,6 +42,7 @@ class MainController extends AbstractController
      *
      */
     public function adoutUs() {
+
         return $this->render('aboutus.html.twig', [
             'title' => 'О нас',
         ]);

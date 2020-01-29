@@ -27,6 +27,42 @@
         </div>
         <div>
             <div>
+                {{ form_errors(form.firstname) }}
+            </div>
+            <div>
+                {{ form_label(form.firstname) }}
+            </div>
+            <div>
+                {{ form_widget(form.firstname) }}
+            </div>
+            <small>{{ form_help(form.firstname) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.lastname) }}
+            </div>
+            <div>
+                {{ form_label(form.lastname) }}
+            </div>
+            <div>
+                {{ form_widget(form.lastname) }}
+            </div>
+            <small>{{ form_help(form.lastname) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.country) }}
+            </div>
+            <div>
+                {{ form_label(form.country) }}
+            </div>
+            <div>
+                {{ form_widget(form.country) }}
+            </div>
+            <small>{{ form_help(form.country) }}</small>
+        </div>
+        <div>
+            <div>
                 {{ form_errors(form.plainPassword.first) }}
             </div>
             <div>
@@ -48,6 +84,18 @@
                 {{ form_widget(form.plainPassword.second) }}
             </div>
             <small>{{ form_help(form.plainPassword.second) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.file) }}
+            </div>
+            <div>
+                {{ form_label(form.file) }}
+            </div>
+            <div>
+                {{ form_widget(form.file) }}
+            </div>
+            <small>{{ form_help(form.file) }}</small>
         </div>
         <div style="margin: 2rem 0;">
             <button class="btn btn-primary">{{ button_label|default('Registration') }}</button>

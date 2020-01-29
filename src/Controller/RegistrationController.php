@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\UserType;
 use App\Entity\User;
+use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,23 +17,36 @@ class RegistrationController extends AbstractController
     /** @var EntityManagerInterface */
     private $entityManager;
 
+    /** @var FileUploader */
+    private $fileUploader;
+
+    /** @var UserPasswordEncoderInterface */
+    private $passwordEncoder;
+
     /**
-     * Category constructor
+     * RegistrationController constructor.
      *
      * @param EntityManagerInterface $entityManager
+     *
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     *
+     * @param FileUploader $fileUploader
      */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder, FileUploader $fileUploader)
     {
         $this->entityManager = $entityManager;
+        $this->fileUploader = $fileUploader;
+        $this->passwordEncoder = $passwordEncoder;
     }
 
     /**
      * @Route("/register", name="user_registration")
+     *
      * @param Request $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
+     *
      * @return Response
      */
-    public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function registerAction(Request $request)
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -40,8 +54,13 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+            $password = $this->passwordEncoder->encodePassword($user, $form->get('plainPassword')->getData());
             $user->setPassword($password);
+
+            if ($user->getFile()) {
+                $filename = $this->fileUploader->upload($user->getFile(), "/users" );
+                $user->setUserImage($filename);
+            }
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();

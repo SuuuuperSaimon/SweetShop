@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <div>
+        {% for message in app.flashes('success') %}
+            <div>
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <ul class="list-group">
+                <li class="list-group-item">tel: 777-77-77</li>
+                <li class="list-group-item">e-mail: test@test.com</li>
+                <li class="list-group-item">adr: somewhere str. 44</li>
+                <li class="list-group-item">skype: anybody</li>
+            </ul>
+            <p>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto beatae ducimus eveniet fugiat id illum inventore libero mollitia nihil officia officiis omnis quas qui, ratione recusandae repudiandae saepe soluta.</span>
+                <span>Ad aspernatur aut commodi est illo magnam nobis reiciendis, soluta! Animi autem enim perferendis quo ratione sint, totam veniam! A delectus enim expedita facilis ipsa maxime odit pariatur reiciendis unde.</span>
+                <span>A accusantium aspernatur beatae commodi eum ipsa iste laudantium minus nostrum quasi repellendus repudiandae saepe sequi, suscipit ullam! Architecto consequuntur fugit iusto necessitatibus nostrum obcaecati qui rerum soluta vel? Aut!</span>
+                <span>Debitis, delectus fugit molestiae nesciunt odit quae quasi recusandae sapiente soluta velit? Ad asperiores autem commodi consequuntur dolor dolorum, enim error inventore magni nesciunt nisi quod reiciendis repudiandae tempore unde?</span>
+            </p>
+        </div>
+        <div class="col-4">
+            {{ include('contacts/feedback_form.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

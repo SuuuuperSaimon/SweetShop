@@ -29,3 +29,21 @@ services:
     App\Service\FileUploader:
         arguments:
             $targetDirectory: '%kernel.project_dir%/public/img'
+
+    admin.award:
+        class: App\Admin\AwardAdmin
+        arguments: [~, App\Entity\Award, ~]
+        tags:
+            - {name: sonata.admin, manager_type: orm, label: Award}
+
+    admin.news:
+        class: App\Admin\NewsAdmin
+        arguments: [~, App\Entity\News, ~]
+        tags:
+            - {name: sonata.admin, manager_type: orm, label: News}
+
+    admin.user:
+        class: App\Admin\UserAdmin
+        arguments: [~, App\Entity\User, ~]
+        tags:
+            - {name: sonata.admin, manager_type: orm, label: Users}

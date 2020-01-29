@@ -2,8 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Country;
 use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -18,8 +21,16 @@ class UserType extends AbstractType
         $builder
             ->add('email', EmailType::class)
             ->add('username', TextType::class)
+            ->add('firstname', TextType::class)
+            ->add('lastname', TextType::class)
+            ->add('country', EntityType::class,[
+                'class'        => Country::class,
+                'label'        => 'Choose your country',
+                'choice_label' => 'countryName'
+            ])
             ->add('plainPassword', RepeatedType::class, [
-                'type' => PasswordType::class,
+                'type'   => PasswordType::class,
+                'mapped' => false,
                 'first_options' => [
                     'label' => 'Password'
                 ],
@@ -27,7 +38,10 @@ class UserType extends AbstractType
                     'label' => 'Repeat Password'
                 ]
             ])
-            ->add('username')
+            ->add('file', FileType::class, [
+                'required' => false,
+                'label'    => 'User image'
+            ])
         ;
     }
 
