@@ -1,15 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}News{% endblock %}
-
-
-
+{% block title %} {{ title }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">НОВОСТИ КОМПАНИИ</h1>
+    <h1 class="text-center">{{ title }}</h1>
+    <form action="">
+        <div class="input-group mb-3">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-outline-secondary">
+                    <span>Search</span>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div>
+        {% for message in app.flashes('success') %}
+            <div>
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
     <div class="row text-center">
         {% for news in pagination %}
-            <div class="card col-2">
+            <div class="card" style="width: 20%;">
                 <div class="card-body">
                     <h5 class="card-title">{{news.newsName}}</h5>
                     <h5 class="card-title">{{news.newsDate|date('d.m.y')}}</h5>
@@ -19,17 +33,16 @@
                     <a href="{{ path('news_edit', {id: news.id}) }}" class="card-link">Редактировать</a>
                 </div>
             </div>
+            {% else %}
+                <div >
+                    <div class="text-center">
+                        No news found
+                    </div>
+                </div>
         {% endfor %}
     </div>
     <div class="navigation">
         {{ knp_pagination_render(pagination) }}
-    </div>
-    <div>
-        {% for message in app.flashes('success') %}
-            <div>
-                {{ message }}
-            </div>
-        {% endfor %}
     </div>
     <a href="{{ path('news_new') }}">Create new</a>
 {% endblock %}

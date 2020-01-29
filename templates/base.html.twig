@@ -16,7 +16,7 @@
                             <span>Торжество вкуса</span>
                         </a>
                 </div>
-                <div class="">
+                <div>
                     <ul class="nav navbar-nav list">
                         <li>
                             <a href="{{ path('about_us') }}">О НАС</a>
@@ -40,6 +40,25 @@
                             <a href="#">ОТЗЫВЫ</a>
                         </li>
                     </ul>
+                </div>
+                <div>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <span>
+                            <a href="{{ asset('http://localhost:8003/admin/dashboard') }}">AdminPanell</a>
+                        </span>
+                    {% endif %}
+                    <span>
+                        <a href="{{ path('user_registration') }}">Registration</a>
+                    </span>
+                    {% if is_granted('ROLE_USER') %}
+                        <span>
+                            <a href="{{ path('app_logout') }}">Logout</a>
+                        </span>
+                    {% else %}
+                        <span>
+                            <a href="{{ path('app_login') }}">Login</a>
+                        </span>
+                    {% endif %}
                 </div>
             </nav>
         </header>

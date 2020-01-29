@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Repository;
 
 use App\Entity\Product;
@@ -19,9 +20,20 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    /**
+     * @param string|null $value
+     *
+     * @return News[]
+     */
+    public function findAllProductSWithCategory(?string $value)
+    {
+
+    }
+
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */
+
     /*
     public function findByExampleField($value)
     {
@@ -32,11 +44,9 @@ class ProductRepository extends ServiceEntityRepository
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
 
-    /*
     public function findOneBySomeField($value): ?Product
     {
         return $this->createQueryBuilder('p')
@@ -45,6 +55,5 @@ class ProductRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult()
         ;
-    }
-    */
+    }*/
 }

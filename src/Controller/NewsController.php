@@ -6,6 +6,7 @@ use App\Entity\News;
 use App\Form\NewsType;
 use App\Repository\NewsRepository;
 use App\Service\FileUploader;
+use App\Service\SerchService;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -20,27 +21,37 @@ class NewsController extends AbstractController
     /** @var EntityManagerInterface*/
     private $entityManager;
 
+    private $service;
+
     /**
      * NewsController constructor.
+     *
      * @param EntityManagerInterface $entityManager
+     * @param SerchService $service
      */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, SerchService $service)
     {
         $this->entityManager = $entityManager;
+        $this->service = $service;
     }
 
     /**
      * @Route("/news", name="news_index")
-     * @param EntityManagerInterface $em
+     *
      * @param PaginatorInterface $paginator
+     *
      * @param Request $request
+     *
      * @return Response
      */
-    public function index(EntityManagerInterface $em, PaginatorInterface $paginator, Request $request)
+    public function index(PaginatorInterface $paginator, Request $request)
     {
-        $news = $this->getDoctrine()
-            ->getRepository(News::class)
-            ->findAll();
+//        $news = $this
+//            ->getDoctrine()
+//            ->getRepository(News::class)
+//            ->findAll();
+        $query = $request->query->get('q');
+        $news = $this->service->findNews($query);
 
         $pagination = $paginator->paginate(
             $news,
@@ -48,15 +59,21 @@ class NewsController extends AbstractController
             10
         );
 
+
+
         return $this->render('news/news.html.twig', [
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'title'      => 'Новости компании',
         ]);
     }
 
     /**
      * @Route("/news/new", name="news_new")
+     *
      * @param Request $request
+     *
      * @param FileUploader $fileUploader
+     *
      * @return Response
      */
     public function new(Request $request, FileUploader $fileUploader): Response
@@ -67,8 +84,8 @@ class NewsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             //dd();
-            $file = $form['newsImage']->getData();
-            $fileName = $fileUploader->upload($file, '/news');
+            //$file = $form['newsImage']->getData();
+            $fileName = $fileUploader->upload($news->getFile(), '/news');
             $news->setNewsImage($fileName);
 
             $this->entityManager->persist($news);
@@ -85,7 +102,9 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/news/{id}", name="news_show")
+     *
      * @param News $news
+     *
      * @return Response
      */
     public function show(News $news): Response
@@ -97,9 +116,13 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/news/edit/{id}", name="news_edit")
+     *
      * @param Request $request
+     *
      * @param News $news
+     *
      * @param FileUploader $fileUploader
+     *
      * @return Response
      */
     public function edit(Request $request, News $news, FileUploader $fileUploader): Response
@@ -109,11 +132,13 @@ class NewsController extends AbstractController
 
         //dd($form->getData());
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['newsImage']->getData();
-            if ($file) {
-                $fileName = $fileUploader->upload($file);
+            //$file = $form['newsImage']->getData();
+
+            if ($news->getFile()) {
+                $fileName = $fileUploader->upload($news->getFile(), "/news");
                 $news->setNewsImage($fileName);
             }
+
             $this->entityManager->flush();
             $this->addFlash('success', 'selected news has been updated');
 
@@ -128,7 +153,9 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/news/delete/{id}", name="news_delete")
+     *
      * @param News $news
+     *
      * @return Response
      */
     public function delete(News $news): Response
