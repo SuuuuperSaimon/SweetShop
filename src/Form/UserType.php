@@ -40,7 +40,7 @@ class UserType extends AbstractType
             ])
             ->add('file', FileType::class, [
                 'required' => false,
-                'label'    => 'User image'
+                'label'    => 'User image',
             ])
         ;
     }

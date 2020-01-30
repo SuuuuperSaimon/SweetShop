@@ -44,10 +44,13 @@
                 <div>
                     {% if is_granted('ROLE_ADMIN') %}
                         <span>
-                            <a href="{{ asset('http://localhost:8003/admin/dashboard') }}">AdminPanell</a>
+                            <a href="{{ asset('http://localhost:8003/admin/dashboard') }}">Admin Panell</a>
                         </span>
                     {% endif %}
                     {% if is_granted('ROLE_USER') %}
+                        <span>
+                            <a href="{{ path('private_cabinet') }}">Личный кабинет</a>
+                        </span>
                         <span>
                             <a href="{{ path('app_logout') }}">Logout</a>
                         </span>
