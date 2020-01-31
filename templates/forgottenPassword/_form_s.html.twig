@@ -1,0 +1,22 @@
+{% block form_s %}
+    {{ form_start(form) }}
+    <div style="margin-bottom: 1rem;">
+        <div>
+            <div>
+                {{ form_errors(form.email) }}
+            </div>
+            <div>
+                {{ form_label(form.email) }}
+            </div>
+            <div>
+                {{ form_widget(form.email) }}
+            </div>
+            <small>{{ form_help(form.email) }}</small>
+
+        </div>
+        <div style="margin: 2rem 0;">
+            <button class="btn btn-primary" type="submit">{{ button_label|default('Send Email') }}</button>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock form_s %}

@@ -1,0 +1,46 @@
+
+{% block form %}
+    {{ form_start(form) }}
+    <div style="margin-bottom: 1rem;">
+        <div>
+            <div>
+                {{ form_errors(form.oldPassword) }}
+            </div>
+            <div>
+                {{ form_label(form.oldPassword) }}
+            </div>
+            <div>
+                {{ form_widget(form.oldPassword) }}
+            </div>
+            <small>{{ form_help(form.oldPassword) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.plainPassword.first) }}
+            </div>
+            <div>
+                {{ form_label(form.plainPassword.first) }}
+            </div>
+            <div>
+                {{ form_widget(form.plainPassword.first) }}
+            </div>
+            <small>{{ form_help(form.plainPassword.first) }}</small>
+        </div>
+        <div>
+            <div>
+                {{ form_errors(form.plainPassword.second) }}
+            </div>
+            <div>
+                {{ form_label(form.plainPassword.second) }}
+            </div>
+            <div>
+                {{ form_widget(form.plainPassword.second) }}
+            </div>
+            <small>{{ form_help(form.plainPassword.second) }}</small>
+        </div>
+        <div style="margin: 2rem 0;">
+            <button class="btn btn-primary">{{ button_label|default('Reset') }}</button>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock form %}

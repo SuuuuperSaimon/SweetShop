@@ -21,6 +21,7 @@ class User implements UserInterface, \Serializable
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email()
      */
     private $email;
 
@@ -64,6 +65,15 @@ class User implements UserInterface, \Serializable
      */
     private $country;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $ressetingToken;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $reset_token_at;
 
     public function getId(): ?int
     {
@@ -239,5 +249,29 @@ class User implements UserInterface, \Serializable
             $this->userImage,
             $this->password,
             ) = unserialize($serialized);
+    }
+
+    public function getRessetingToken(): ?string
+    {
+        return $this->ressetingToken;
+    }
+
+    public function setRessetingToken(?string $ressetingToken): self
+    {
+        $this->ressetingToken = $ressetingToken;
+
+        return $this;
+    }
+
+    public function getResetTokenAt(): ?\DateTimeInterface
+    {
+        return $this->reset_token_at;
+    }
+
+    public function setResetTokenAt(?\DateTimeInterface $reset_token_at): self
+    {
+        $this->reset_token_at = $reset_token_at;
+
+        return $this;
     }
 }

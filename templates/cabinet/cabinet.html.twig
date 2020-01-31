@@ -1,14 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>{{ title }}</h1>
+    {{ title }}
     <div class="container-fluid row">
         <div class="col-4">
             <img src="{{ asset('img/users/' ~ user.userImage) }}" alt="">
         </div>
         <div class="col-8">
-            {{ include('registration/_form.html.twig', {'button_label': 'Update'}) }}
+            {{ include('cabinet/_form.html.twig') }}
         </div>
     </div>
-    <a class="btn btn-primary" href="{{ path('home_index') }}">back to home paige</a>
+    <div>
+        <a class="btn btn-primary" href="{{ path('home_index') }}">Back to home paige</a>
+        <a class="btn btn-primary" href="{{ path('reset_password') }}">Reset password</a>
+    </div>
 {% endblock body %}
+
