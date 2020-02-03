@@ -6,7 +6,9 @@ namespace App\Controller;
 
 
 use App\Entity\User;
-use App\Form\CheckEmaillType;
+use App\Form\EMailConfirmType;
+use App\Service\SendEmail;
+use App\Service\TokenGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,39 +21,82 @@ class ForgottenPasswordController extends AbstractController
      * @var EntityManagerInterface
      */
     private $em;
+    /**
+     * @var TokenGenerator
+     */
+    private $generator;
+    /**
+     * @var SendEmail
+     */
+    private $mailer;
 
     /**
      * ForgottenPasswordController constructor.
      *
      * @param EntityManagerInterface $em
+     *
+     * @param TokenGenerator $generator
+     *
+     * @param SendEmail $mailer
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, TokenGenerator $generator, SendEmail $mailer)
     {
         $this->em = $em;
+        $this->generator = $generator;
+        $this->mailer = $mailer;
     }
 
     /**
-     * @Route ("/forgot", name="forgot_password")
+     * @Route ("/forgot-password", name="forgot_password")
      *
      * @param Request $request
      *
      * @return Response
+     *
+     * @throws \Exception
      */
-    public function sendEmail(Request $request)
+    public function forgotPassword(Request $request)
     {
-        /** @var User $user */
+        /**
+         * @var User $user
+         */
         $user = $this->getUser();
-        $form = $this->createForm(CheckEmaillType::class, $user);
+        $form = $this->createForm(EMailConfirmType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            dd($form->get('email')->getData());
             $email = $form->get('email')->getData();
-            dump($email);die;
+            $user = $this->em->getRepository(User::class)->findOneBy(['email' => $email]);
+
+            if (!$user->getResetTokenAt()) {
+                $ressetingToken = $this->generator->generateToken();
+                $reset_token_at = new \DateTime();
+
+                $user->setRessetingToken($ressetingToken);
+                $user->setResetTokenAt($reset_token_at);
+
+                $this->em->flush();
+            }
+
+            if ($user->getResetTokenAt()) {
+                $this->mailer->sendEmail($user);
+                return $this->render('forgottenPassword/confirmationSending.html.twig');
+            }
         }
 
         return $this->render('forgottenPassword/forgottenPassword.html.twig', [
             'form' => $form->createView()
+        ]);
+    }
+
+
+    /**
+     * @Route("/change-password/{token}", name="change_password")
+     */
+    private function changePassword($token)
+    {
+        return $this->render('forgottenPassword/change_password.html.twig', [
+            'token' => $token
         ]);
     }
 }
