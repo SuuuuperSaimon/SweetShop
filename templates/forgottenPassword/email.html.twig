@@ -1,7 +1,7 @@
-{% set resetUrl = app.request.schemeAndHttpHost ~ path('changing_password', {token: user.resetingToken}) %}
-<h3></h3>
+{% set resetUrl = app.request.schemeAndHttpHost ~ path('change_password', {token: user.ressetingToken}) %}
+<h3>Hi {{ user.firstname }}</h3>
+<h4><strong>If you do not recover the password, ignore this letter</strong></h4>
 
-Hi!
-To change password you must go to: <a href="{{ path('change_password', { token: user.ressetingToken})  }}">...</a>
-
-Thanks!
+<p>To change password you must go to: <a href="{{ resetUrl|raw }}">Reset password</a>
+</p>
+<p>Thanks!</p>

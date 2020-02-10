@@ -4,6 +4,8 @@
 namespace App\Service;
 
 
+use App\Entity\User;
+
 class TokenGenerator
 {
     /**
@@ -55,11 +57,13 @@ class TokenGenerator
      */
     public function checkTokenLifetime($date)
     {
-        if (($date->add(new DateInterval('P1D'))) > (new \DateTime()) ) {
-            return true;
+        if ($date) {
+            if ((date_add($date, date_interval_create_from_date_string('1 days'))) > (new \DateTime())) {
+                return false;
+            }
         }
 
-        return false;
+        return true;
     }
 
     public function removeToken(User $user)

@@ -72,17 +72,19 @@ class ForgottenPasswordController extends AbstractController
                 ->findOneBy(['email' => $email]);
 
             if (!$user) {
+
                 return $this->render('forgottenPassword/email_input.html.twig', [
                    'invalid_email' => $email,
                    'form'          => $form->createView()
                 ]);
             } else {
-                if ($this->generator->checkTokenLifetime($user->getResetTokenAt())) {
+                if ($user->getResetTokenAt() === null || $this->generator->checkTokenLifetime($user->getResetTokenAt())) {
                     $this->generator->addToUserToken($user);
                     $this->mailer->sendEmail($user);
 
                     return $this->render('forgottenPassword/confirmationSending.html.twig');
                 } else {
+
                     return $this->render('forgottenPassword/email_input.html.twig',[
                         'invalid_token' => $email,
                         'form'          => $form->createView()

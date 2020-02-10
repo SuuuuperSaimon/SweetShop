@@ -30,7 +30,18 @@ class SendEmail
         $this->enviroment = $environment;
     }
 
-    public function sendEmail($user) {
+    /**
+     * @param User $user
+     *
+     * @return int
+     *
+     * @throws \Twig\Error\LoaderError
+     *
+     * @throws \Twig\Error\RuntimeError
+     *
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function sendEmail(User $user) {
         $message = (new \Swift_Message('Hello'))
             ->setFrom('send@example.com')
             ->setTo($user->getEmail())
