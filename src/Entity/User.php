@@ -273,4 +273,11 @@ class User implements UserInterface, \Serializable
 
         return $this;
     }
+
+    public function addAdminRole(?string $adminRole)
+    {
+        $this->roles[] = $adminRole;
+
+        return $this;
+    }
 }

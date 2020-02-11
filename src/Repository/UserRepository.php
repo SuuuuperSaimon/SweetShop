@@ -36,6 +36,14 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
+
+    public function adminSearch()
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.roles LIKE :roles')
+            ->setParameter('roles', '%' . 'ADMIN' . '%')
+            ;
+    }
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

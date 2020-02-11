@@ -34,16 +34,22 @@ services:
         class: App\Admin\AwardAdmin
         arguments: [~, App\Entity\Award, ~]
         tags:
-            - {name: sonata.admin, manager_type: orm, label: Award}
+            - {name: sonata.admin, group: "Content", manager_type: orm, label: Award}
 
     admin.news:
         class: App\Admin\NewsAdmin
         arguments: [~, App\Entity\News, ~]
         tags:
-            - {name: sonata.admin, manager_type: orm, label: News}
+            - {name: sonata.admin, group: "Content", manager_type: orm, label: News}
 
     admin.user:
         class: App\Admin\UserAdmin
         arguments: [~, App\Entity\User, ~]
         tags:
-            - {name: sonata.admin, manager_type: orm, label: Users}
+            - {name: sonata.admin, group: "Users and Admins", manager_type: orm, label: Users}
+
+    admin.admin:
+        class: App\Admin\AdminAdmin
+        arguments: [~, App\Entity\User, ~]
+        tags:
+            - {name: sonata.admin, group: "Users and Admins", manager_type: orm, label: Admins}
