@@ -5,8 +5,8 @@ services:
         restart: always
         command: --sql_mode=""
         environment:
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: sweet_shop_db
         volumes:
             - './docker/database:/var/lib/mysql:cached'
 
@@ -49,4 +49,4 @@ services:
     mailcatcher:
         image: schickling/mailcatcher
         ports:
-            - "1083:1080"
+            - "1080:1080"

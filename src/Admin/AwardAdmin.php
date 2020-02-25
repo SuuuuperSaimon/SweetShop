@@ -3,6 +3,7 @@
 namespace App\Admin;
 
 use App\Service\FileUploader;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -41,7 +42,7 @@ class AwardAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('award_name', TextType::class)
-            ->add('award_description', TextareaType::class)
+            ->add('award_description', CKEditorType::class)
             ->add('file', FileType::class, [
                 'required'   => false
             ]);

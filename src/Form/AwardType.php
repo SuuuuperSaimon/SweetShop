@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Award;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -16,7 +17,7 @@ class AwardType extends AbstractType
     {
         $builder
             ->add('award_name', TextType::class)
-            ->add('award_description', TextareaType::class)
+            ->add('award_description', CKEditorType::class)
             ->add('file', FileType::class, [
 //                'mapped'   => false,
                 'required' => false

@@ -22,6 +22,7 @@ class SendEmail
      * SendEmail constructor.
      *
      * @param \Swift_Mailer $mailer
+     *
      * @param \Twig_Environment $environment
      */
     public function __construct(\Swift_Mailer $mailer, \Twig_Environment $environment)

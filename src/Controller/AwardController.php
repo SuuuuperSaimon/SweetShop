@@ -39,7 +39,9 @@ class AwardController extends AbstractController
             ->getDoctrine()
             ->getRepository(Award::class)
             ->findAll();
-
+        foreach ( $awards as $award) {
+            $award->setAwardDescription(htmlspecialchars($award->getAwardDescription()));
+        }
         return $this->render('award/index.html.twig', [
             'awards' => $awards,
             'title'  => 'Награды',
