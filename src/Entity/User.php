@@ -128,6 +128,11 @@ class User implements UserInterface, \Serializable
         return (string) $this->password;
     }
 
+    /**
+     * @param string $password
+     *
+     * @return $this
+     */
     public function setPassword(string $password): self
     {
         $this->password = $password;

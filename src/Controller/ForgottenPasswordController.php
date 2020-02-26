@@ -11,6 +11,7 @@ use App\Service\SendEmail;
 use App\Service\TokenGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -99,21 +100,21 @@ class ForgottenPasswordController extends AbstractController
     }
 
     /**
-     * @Route("/change-password/{token}", name="change_password")
+     * @Route("/change-password/{ressetingToken}", name="change_password")
      *
      * @param Request $request
      *
      * @param User $user
      *
-     * @return Response
+     * @return RedirectResponse|Response
      */
-    private function changePassword(Request $request, User $user)
+    public function changePassword(Request $request, User $user)
     {
         $form = $this->createForm(ChangePasswordType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setPassword($this->hash->HashPassword($user, $form->get('plainPassword')->getData()));
+            $this->hash->hashPassword($user, $form->get('plainPassword')->getData());
             $this->generator->removeToken($user);
             $this->em->flush();
 

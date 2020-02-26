@@ -30,7 +30,7 @@ class PasswordHash
      *
      * @return mixed
      */
-    public function HashPassword($object, $password)
+    public function hashPassword($object, $password)
     {
         return $object->setPassword($this->passwordEncoder->encodePassword(
             $object,
