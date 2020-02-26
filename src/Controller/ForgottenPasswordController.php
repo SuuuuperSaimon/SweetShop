@@ -4,6 +4,8 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Event\PasswordResetedEvent;
+use App\EventListener\PasswordResetListener;
 use App\Form\ChangePasswordType;
 use App\Form\EMailConfirmType;
 use App\Service\PasswordHash;
@@ -11,6 +13,7 @@ use App\Service\SendEmail;
 use App\Service\TokenGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,6 +32,10 @@ class ForgottenPasswordController extends AbstractController
 
     /** @var PasswordHash */
     private $hash;
+    /**
+     * @var EventDispatcherInterface
+     */
+    private $dispatcher;
 
     /**
      * ForgottenPasswordController constructor.
@@ -40,13 +47,16 @@ class ForgottenPasswordController extends AbstractController
      * @param SendEmail $mailer
      *
      * @param PasswordHash $hash
+     *
+     * @param EventDispatcherInterface $dispatcher
      */
-    public function __construct(EntityManagerInterface $em, TokenGenerator $generator, SendEmail $mailer, PasswordHash $hash)
+    public function __construct(EntityManagerInterface $em, TokenGenerator $generator, SendEmail $mailer, PasswordHash $hash, EventDispatcherInterface $dispatcher)
     {
         $this->em = $em;
         $this->generator = $generator;
         $this->mailer = $mailer;
         $this->hash = $hash;
+        $this->dispatcher = $dispatcher;
     }
 
     /**
@@ -60,6 +70,8 @@ class ForgottenPasswordController extends AbstractController
      */
     public function forgotPassword(Request $request)
     {
+        $this->dispatcher->dispatch(new PasswordResetedEvent(), PasswordResetedEvent::PASSWORD_RESET);
+
         /** @var User $user */
         $user = $this->getUser();
         $form = $this->createForm(EMailConfirmType::class, $user);
@@ -110,13 +122,19 @@ class ForgottenPasswordController extends AbstractController
      */
     public function changePassword(Request $request, User $user)
     {
+        $this->dispatcher->dispatch(new PasswordResetedEvent());
+
+        dd(321);
         $form = $this->createForm(ChangePasswordType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->hash->hashPassword($user, $form->get('plainPassword')->getData());
+            $this
+                ->hash
+                ->hashPassword($user, $form->get('plainPassword')->getData());
             $this->generator->removeToken($user);
             $this->em->flush();
+//            $this->dispatcher->addListener(PasswordResetedEvent::PASSWORD_RESET, [new PasswordResetListener(), 'onPasswordReset']);
 
             return $this->redirectToRoute('app_login');
         }

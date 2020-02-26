@@ -30,6 +30,9 @@ services:
         arguments:
             $targetDirectory: '%kernel.project_dir%/public/img'
 
+    App\EventListener\PasswordResetListener:
+        tags:
+          - { name: kernel.event_listener, event: password.reset, method: onPasswordReset }
     admin.award:
         class: App\Admin\AwardAdmin
         arguments: [~, App\Entity\Award, ~]
