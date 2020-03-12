@@ -2,7 +2,5 @@
 {% block title %} {{ title }} {% endblock title %}
 {% block body %}
     <h2>{{ shop.shopAddress }}</h2>
-
-    <a href="{{ path('store_edit', {id: shop.id}) }}" class="card-link">Редактировать</a>
     <a href="{{ path('stores') }}">back to list</a>
 {% endblock %}

@@ -16,9 +16,6 @@
                 <a class="list-group-item" href="{{ path('product_show', {id: product.id}) }}">{{ product.productName }}</a>
             {% endfor %}
         </div>
-        <a class="btn btn-primary" href="{{ path('product_create') }}" class="card-link">Создать продукт</a>
     {% endif %}
-
-    <a class="btn btn-primary" href="{{ path('category_edit', {id: category.id}) }}" class="card-link">Редактировать категорию</a>
     <a class="btn btn-primary" href="{{ path('category') }}">back to list</a>
 {% endblock %}
